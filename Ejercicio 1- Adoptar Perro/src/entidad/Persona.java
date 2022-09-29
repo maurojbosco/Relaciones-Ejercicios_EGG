@@ -1,22 +1,23 @@
 package entidad;
 
 public class Persona {
+    // Atributos
     private String nombre;
     private String apellido;
-    private Dni DNI;
+    private int edad;
+    private long documento;
+    private Perro perro;
 
-    //Constructores
-    public Persona (String nombre, String apellido, Dni DNI){
+    // Contructores
+    public Persona(String nombre, String apellido, int edad, long documento, Perro perro) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.DNI = DNI;
+        this.edad = edad;
+        this.documento = documento;
+        this.perro = perro;
     }
 
-    public Persona(){
-
-    }
-    
-    //Getters y Setters
+    // Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -33,18 +34,35 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public Dni getDNI() {
-        return DNI;
+    public int getEdad() {
+        return edad;
     }
 
-    public void setDNI(Dni dNI) {
-        DNI = dNI;
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
-    //To String
+    public long getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(long documento) {
+        this.documento = documento;
+    }
+
+    public Perro getPerro() {
+        return perro;
+    }
+
+    public void setPerro(Perro perro) {
+        this.perro = perro;
+    }
+
+    // To String
     @Override
     public String toString() {
-        return "Persona [DNI=" + DNI + ", apellido=" + apellido + ", nombre=" + nombre + "]";
+        return "Persona [apellido=" + apellido + ", documento=" + documento + ", edad=" + edad + ", nombre=" + nombre
+                + "]";
     }
 
 }
