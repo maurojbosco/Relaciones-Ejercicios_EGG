@@ -6,7 +6,7 @@ public class Jugador {
     private boolean mojado;
 
     // Constructores
-    public Jugador(Integer id, boolean mojado) {
+    public Jugador(Integer id) {
         this.id = id;
         this.nombre = "Jugador " + id;
         this.mojado = false;
@@ -61,7 +61,7 @@ public class Jugador {
             return true;
         } else{
             r.siguienteChorro();
-            return true;
+            return false;
         }
     }
 }

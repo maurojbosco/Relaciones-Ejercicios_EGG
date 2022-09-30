@@ -38,11 +38,11 @@ public class Revolver {
 
     // Metodo que pone los valores iniciales a los atributos de la clase
     public void llenarRevolver() {
-        this.posicionActual = (int) Math.random() * 7 + 1;
-        this.posicionAgua = (int) Math.random() * 7 + 1;
+        this.posicionActual = (int) (Math.random()*6)+1;
+        this.posicionAgua = (int) (Math.random()*6)+1;
     }
 
-    // Método que compara si los atributos de la clase tiene el mismo valor
+    // Método que compara si los atributos de la clase tienen el mismo valor
     public boolean mojar() {
         if (this.posicionActual == this.posicionAgua) {
             return true;
@@ -50,7 +50,7 @@ public class Revolver {
             return false;
         }
     }
-
+    //Método que incrementa el valor del atributo posicionActual
     public void siguienteChorro() {
         if (this.posicionActual == 6) {
             this.posicionActual = 1;

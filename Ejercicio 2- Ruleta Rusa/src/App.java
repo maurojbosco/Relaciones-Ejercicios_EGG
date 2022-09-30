@@ -31,8 +31,34 @@ moja, se pasa al siguiente jugador hasta que uno se moje. Si o si alguien se tie
 mojar. Al final del juego, se debe mostrar que jugador se mojó.
 Pensar la lógica necesaria para realizar esto, usando los atributos de la clase Juego. */
 
+import entidad.Juego;
+import entidad.Jugador;
+import entidad.Revolver;
+import java.util.*;
+
 public class App {
     public static void main(String[] args) {
-        
+        Scanner sn = new Scanner(System.in);
+        System.out.println("ingrese la cantidad de jugadores (Máximo 6)");
+        int cantDeJug = sn.nextInt();
+        sn.close();
+        if (cantDeJug > 6) {
+            cantDeJug = 6;
+        }
+        List<Jugador> jugadores = new ArrayList<>();
+        for (int i = 0; i < cantDeJug; i++) {
+            jugadores.add(new Jugador(i + 1));
+        }
+
+        Revolver revolver = new Revolver();
+        revolver.llenarRevolver();
+
+        System.out.println(revolver.toString());
+
+        Juego ruletaRusa = new Juego();
+
+        ruletaRusa.llenarJuego(jugadores, revolver);
+        ruletaRusa.ronda();
+       
     }
 }
