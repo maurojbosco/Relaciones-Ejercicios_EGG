@@ -35,4 +35,27 @@ public class Revolver {
     public String toString() {
         return "Revolver [posicionActual=" + posicionActual + ", posicionAgua=" + posicionAgua + "]";
     }
+
+    // Metodo que pone los valores iniciales a los atributos de la clase
+    public void llenarRevolver() {
+        this.posicionActual = (int) Math.random() * 7 + 1;
+        this.posicionAgua = (int) Math.random() * 7 + 1;
+    }
+
+    // Método que compara si los atributos de la clase tiene el mismo valor
+    public boolean mojar() {
+        if (this.posicionActual == this.posicionAgua) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void siguienteChorro() {
+        if (this.posicionActual == 6) {
+            this.posicionActual = 1;
+        } else {
+            this.posicionActual++;
+        }
+    }
 }
