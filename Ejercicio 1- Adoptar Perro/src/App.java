@@ -65,6 +65,7 @@ public class App {
             }
 
         } while (rita.getPerro() == null || nahuel.getPerro() == null);
+        sn.close();
 
         System.out.println("adoptante: " + rita.toString());
         System.out.println("perro adoptado por Rita: " + rita.getPerro());

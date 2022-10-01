@@ -38,27 +38,31 @@ import java.util.*;
 
 public class App {
     public static void main(String[] args) {
+        // Se pide por teclado una cantidad de jugadores
         Scanner sn = new Scanner(System.in);
         System.out.println("ingrese la cantidad de jugadores (Máximo 6)");
         int cantDeJug = sn.nextInt();
         sn.close();
+        // Si la cantidad de jugadores ingresados es mayor a 6 se la establece en 6 por
+        // defecto
         if (cantDeJug > 6) {
             cantDeJug = 6;
         }
+        // Se crea la cantidad de jugadores indicada anteriormente
         List<Jugador> jugadores = new ArrayList<>();
         for (int i = 0; i < cantDeJug; i++) {
             jugadores.add(new Jugador(i + 1));
         }
-
+        // Se instancia un revolver y se llama al método que lo llena aleatoriamente
         Revolver revolver = new Revolver();
         revolver.llenarRevolver();
-
+        // Se muestan los valores de los atributos del objeto revolver
         System.out.println(revolver.toString());
-
+        // Se instancia un juego
         Juego ruletaRusa = new Juego();
-
+        // Se llama a ambos métodos del objeto juego para poder iniciar la partida
         ruletaRusa.llenarJuego(jugadores, revolver);
         ruletaRusa.ronda();
-       
+
     }
 }
