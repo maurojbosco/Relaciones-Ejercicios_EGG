@@ -15,8 +15,54 @@ indicárselo al usuario
 • mostrarBaraja(): muestra todas las cartas hasta el final. Es decir, si se saca una carta y 
 luego se llama al método, este no mostrara esa primera carta.
  */
+
+import servicio.BarajaService;
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
+        Scanner sn = new Scanner(System.in);
 
+        //Se instancia una baraja mediante el servicio llamando al método que crea una baraja
+        BarajaService baraja = new BarajaService();
+        System.out.println("Se va a crear una baraja");
+        baraja.crearBaraja();
+
+        //Menú que llama a todos los métodos del servicio
+        do {
+            System.out.println("Elija una opción");
+            System.out.println("1 para barajar mazo de cartas");
+            System.out.println("2 para mostrar la siguiente carta de la baraja");
+            System.out.println("3 para mostrar las cartas disponibles en el mazo");
+            System.out.println("4 para dar un número solicitado de cartas");
+            System.out.println("5 para mostrar las cartas que ya salieron");
+            System.out.println("6 para mostras las cartas que quedan en el mazo");
+            switch (sn.nextInt()) {
+                case 1:
+                    baraja.barajar();
+                    break;
+                case 2:
+                    baraja.siguienteCarta();
+                    break;
+                case 3:
+                    baraja.cartasDisponibles();
+                    break;
+                case 4:
+                    baraja.darCartas();
+                    break;
+                case 5:
+                    baraja.cartasMonton();
+                    break;
+                case 6:
+                    baraja.mostrarBaraja();
+                    break;
+                default:
+                    System.out.println("Ingrese un opción válida");
+                    break;
+            }
+            System.out.println("Ingrese cualquier tecla para realizar otra operacion o 's' para salir");
+
+        } while (sn.next().charAt(0) != 's');
+        sn.close();
     }
 }
